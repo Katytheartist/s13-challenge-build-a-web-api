@@ -1,14 +1,6 @@
 require('dotenv').config()
 const server = require('./api/server')
-
 const port = process.env.PORT || 9000
-
-// const express = require('express')
-// server.use(express.json())
-
-// server.get('/api/projects', (req, res)=>{
-//     res.json({message: 'api workin'})
-//  })
 
 server.listen(port, ()=>{
     console.log(`listening on port ${port}`)

@@ -1,4 +1,3 @@
-// Write your "projects" router here!
 const express = require('express')
 const Project = require('./projects-model')
 const {validateProjectId, validateProject} = require('./projects-middleware')
@@ -21,7 +20,6 @@ router.post('/', validateProject, (req, res, next)=>{
     const newProjectData = {name: req.name, description: req.description, completed: true}
     Project.insert(newProjectData)
     .then(newProject =>{
-        //throw new Error('danggit')
         res.status(201).json(newProject)
     })
     .catch(next)

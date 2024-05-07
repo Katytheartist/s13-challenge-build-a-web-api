@@ -34,23 +34,6 @@ async function validateActions(req, res, next) {
 }
   }
 
-//   function validateActions(req, res, next) {
-//     const { notes, description, completed} = req.body;
-//     if (!notes || !notes.trim() || !description || !description.trim() || typeof completed !== 'boolean') {
-//         res.status(400).json({ message: 'the request body is missing notes, description or project_id' })
-//     } else {
-//         req.notes = notes;
-//         req.description = description;
-//         next();
-//     }
-// }
-
-
-
-
-
-
-
 module.exports = {
     validateActionId, 
     validateActions}
