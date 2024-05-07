@@ -1,30 +1,32 @@
 
-const express = require('express')
-const server = express()
-const cors = require('cors')
+//const express = require('express')
+//const server = express()
+const server = require('./api/server')
+
+//const cors = require('cors')
 const port = process.env.PORT || 9000
 
-server.use(express.json())
-server.use(cors())
+// server.use(express.json())
+// server.use(cors())
 
-server.get('/api/hello', (req, res)=>{
-    res.json({message: 'api workin'})
-})
+// server.get('/api/hello', (req, res)=>{
+//     res.json({message: 'api workin'})
+// })
 
-server.use('*', (req, res)=>{
-    res.send(`<h1>Hello cats!</h1>`)
-})
+// server.use('*', (req, res)=>{
+//     res.send(`<h1>Hello cats!</h1>`)
+// })
 
 server.listen(port, ()=>{
     console.log(`listening on port ${port}`)
 })
 
-server.use((err, req, res, next)=>{ //eslint-disable-line
-    res.status(500).json({
-        message: err.message,
-        stack: err.stack,
-    })
-})
+// server.use((err, req, res, next)=>{ //eslint-disable-line
+//     res.status(500).json({
+//         message: err.message,
+//         stack: err.stack,
+//     })
+// })
 
 /*
 play this: https://www.youtube.com/watch?v=d-diB65scQU
