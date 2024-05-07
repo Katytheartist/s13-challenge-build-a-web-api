@@ -1,7 +1,7 @@
 // Write your "projects" router here!
 const express = require('express')
 const Project = require('./projects-model')
-const {validateProjectId} = require('./projects-middleware')
+const {validateProjectId, validateProject} = require('./projects-middleware')
 const router = express.Router()
 
 
@@ -26,12 +26,21 @@ router.get('/:id', validateProjectId,  (req, res)=>{
     //     }
     // }
     // catch (err) {
+     //   next(err)
     // }
 })
 
-// router.post('/', (req, res)=>{
-
-// })
+router.post('/', validateProject, (req, res, next)=>{
+    Project.insert({
+        name: req.name, 
+        description: req.description,
+    })
+    .then(newProject =>{
+        //throw new Error('danggit')
+        res.status(201).json(newProject)
+    })
+    .catch(next)
+})
 
 // router.delete('/:id', validateProjectId, (req, res)=>{
 
