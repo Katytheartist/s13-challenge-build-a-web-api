@@ -29,8 +29,8 @@ function validateProject(req, res, next){
             message: 'missing required name or description'
         })
     } else {
-        req.name = name.trim();
-        req.description = description.trim();
+        req.name = name;
+        req.description = description;
         next();
     }
 }
