@@ -2,7 +2,6 @@
 const Projects = require('./projects-model');
 
 async function validateProjectId(req, res, next) {
-    try {
         const project = await Projects.get(req.params.id)
         if(!project){
             res.status(404).json({
@@ -13,14 +12,6 @@ async function validateProjectId(req, res, next) {
             next()
         }
     }
-    catch (err) {
-        res.status(500).json({
-            customMessage: 'problem finding project with that id',
-            message: err.message,
-            stack: err.stack,
-        })
-    }
-}
 
 function validateProject(req, res, next){
     const {name, description, completed} = req.body;

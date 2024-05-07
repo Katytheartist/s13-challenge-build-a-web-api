@@ -15,19 +15,6 @@ router.get('/', (req, res, next)=>{
 
 router.get('/:id', validateProjectId,  (req, res)=>{
     res.json(req.project)
-    // try{
-    //     const project = await Project.get(req.params.id)
-    //     if(!project){
-    //         res.status(404).json({
-    //             message: 'problem finding id'
-    //         })
-    //     } else {
-    //         res.json(req.project)
-    //     }
-    // }
-    // catch (err) {
-     //   next(err)
-    // }
 })
 
 router.post('/', validateProject, (req, res, next)=>{
